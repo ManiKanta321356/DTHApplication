@@ -1,5 +1,7 @@
 package com.aurum.www.DTHApplication.entity;
 
+import com.aurum.www.DTHApplication.enums.SetUpBoxType;
+import com.aurum.www.DTHApplication.enums.Status;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,11 +12,21 @@ public class SetupBox
     @Id
     private int id;
     private String ipAddress;
-    private String setUpBoxType;
+    private SetUpBoxType setUpBoxType;
     private String setUpBoxId;
-    private String status;
+    private Status status;
     private String version;
     private String software;
+
+    public SetupBox(int id, String ipAddress, SetUpBoxType setUpBoxType, String setUpBoxId, Status status, String version, String software) {
+        this.id = id;
+        this.ipAddress = ipAddress;
+        this.setUpBoxType = setUpBoxType;
+        this.setUpBoxId = setUpBoxId;
+        this.status = status;
+        this.version = version;
+        this.software = software;
+    }
 
     public int getId() {
         return id;
@@ -32,11 +44,11 @@ public class SetupBox
         this.ipAddress = ipAddress;
     }
 
-    public String getSetUpBoxType() {
+    public SetUpBoxType getSetUpBoxType() {
         return setUpBoxType;
     }
 
-    public void setSetUpBoxType(String setUpBoxType) {
+    public void setSetUpBoxType(SetUpBoxType setUpBoxType) {
         this.setUpBoxType = setUpBoxType;
     }
 
@@ -48,11 +60,11 @@ public class SetupBox
         this.setUpBoxId = setUpBoxId;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

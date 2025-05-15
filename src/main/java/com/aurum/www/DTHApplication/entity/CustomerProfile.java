@@ -1,5 +1,6 @@
 package com.aurum.www.DTHApplication.entity;
 
+import com.aurum.www.DTHApplication.enums.Gender;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -15,13 +16,13 @@ public class CustomerProfile
     private String lastName;
     @Indexed(unique = true)
     private String email;
-    private String gender;
+    private Gender gender;
     @Indexed(unique = true)
     private long phoneNumber;
     @DBRef
     private Address address;
 
-    public CustomerProfile(int customerProfileId, long alternatePhoneNumber, String firstName, String lastName, String email, String gender, long phoneNumber, Address address) {
+    public CustomerProfile(int customerProfileId, long alternatePhoneNumber, String firstName, String lastName, String email, Gender gender, long phoneNumber, Address address) {
         this.customerProfileId = customerProfileId;
         this.alternatePhoneNumber = alternatePhoneNumber;
         this.firstName = firstName;
@@ -72,11 +73,11 @@ public class CustomerProfile
         this.email = email;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 

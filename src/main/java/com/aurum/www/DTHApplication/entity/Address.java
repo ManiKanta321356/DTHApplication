@@ -1,6 +1,8 @@
 package com.aurum.www.DTHApplication.entity;
 
 
+import com.aurum.www.DTHApplication.enums.Country;
+import com.aurum.www.DTHApplication.enums.State;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -13,12 +15,12 @@ public class Address {
     @Indexed(unique = true)
     private String houseNumber;
     private  String street;
-    private String state;
+    private State state;
     private int pincode;
     private String city;
-    private String country;
+    private Country country;
 
-    public Address(int addressId, String houseNumber, String street, String state, int pincode, String city, String country) {
+    public Address(int addressId, String houseNumber, String street, State state, int pincode, String city, Country country) {
         this.addressId = addressId;
         this.houseNumber = houseNumber;
         this.street = street;
@@ -52,11 +54,11 @@ public class Address {
         this.street = street;
     }
 
-    public String getState() {
+    public State getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(State state) {
         this.state = state;
     }
 
@@ -76,11 +78,11 @@ public class Address {
         this.city = city;
     }
 
-    public String getCountry() {
+    public Country getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 }

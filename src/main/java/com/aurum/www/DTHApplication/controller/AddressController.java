@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/address")
+@RequestMapping("/api/address")
 public class AddressController
 {
     private IAddress iAddress;
@@ -17,7 +17,7 @@ public class AddressController
         this.iAddress=iAddress;
     }
 
-    @PostMapping("/add")
+    @PostMapping("/save")
     public ResponseEntity<Object> saveAddress(@RequestBody Address address){
         Address add =iAddress.saveAddress(address);
         if(add == null){
@@ -28,7 +28,7 @@ public class AddressController
         }
     }
 
-    @GetMapping("/all")
+    @GetMapping("/getAll")
     public ResponseEntity<Object> getAllAddresses(){
         List<Address> list = iAddress.getAllAddresses();
         if(!list.isEmpty()){

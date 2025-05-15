@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/registration")
+@RequestMapping("/api/registration")
 public class RegistrationController {
 
     private IRegistartion iRegistartion;
@@ -28,7 +28,7 @@ public class RegistrationController {
         }
     }
 
-    @GetMapping("/all")
+    @GetMapping("/getAll")
     public ResponseEntity<Object> getAllRegistrations(){
         List<Registration> list = iRegistartion.getAllRegistrations();
         if(!list.isEmpty()){

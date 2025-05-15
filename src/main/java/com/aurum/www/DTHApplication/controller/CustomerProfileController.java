@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/customer")
+@RequestMapping("/api/customer")
 public class CustomerProfileController {
 
     private ICustomerProfile iCustomerProfile;
@@ -33,7 +33,7 @@ public class CustomerProfileController {
         }
     }
 
-    @GetMapping("/all")
+    @GetMapping("/getAll")
     public ResponseEntity<Object> getAllCustomers(){
         List<CustomerProfile> list = iCustomerProfile.getAllCustomers();
         if(!list.isEmpty()){

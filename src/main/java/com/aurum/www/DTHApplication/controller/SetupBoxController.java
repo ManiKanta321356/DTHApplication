@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
-@RequestMapping("/setupbox")
+@RequestMapping("/api/setupbox")
 public class SetupBoxController {
 
     private ISetupBox iSetupBox;
@@ -28,7 +28,7 @@ public class SetupBoxController {
         }
     }
 
-    @GetMapping("all")
+    @GetMapping("getAll")
     public ResponseEntity<Object> getAllSetUpBoxes(){
         List<SetupBox> list = iSetupBox.getAllSetUpBoxes();
         if(!list.isEmpty()){

@@ -1,9 +1,13 @@
 package com.aurum.www.DTHApplication.entity;
 
+import com.aurum.www.DTHApplication.enums.IDProof;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Document(collection = "registrations")
 public class Registration
@@ -12,15 +16,15 @@ public class Registration
     private int id;
     @Indexed(unique = true)
     private String idProofNumber;
-    private String idProofType;
-    private String registrationDate;
+    private IDProof idProofType;
+    private LocalDate registrationDate;
     @Indexed(unique = true)
     private String registrationId;
     private String sellerId;
     @DBRef
     private SetupBox setupBox;
 
-    public Registration(int id, String idProofNumber, String idProofType, String registrationDate, String registrationId, String sellerId, SetupBox setupBox) {
+    public Registration(int id, String idProofNumber, IDProof idProofType, LocalDate registrationDate, String registrationId, String sellerId, SetupBox setupBox) {
         this.id = id;
         this.idProofNumber = idProofNumber;
         this.idProofType = idProofType;
@@ -46,19 +50,19 @@ public class Registration
         this.idProofNumber = idProofNumber;
     }
 
-    public String getIdProofType() {
+    public IDProof getIdProofType() {
         return idProofType;
     }
 
-    public void setIdProofType(String idProofType) {
+    public void setIdProofType(IDProof idProofType) {
         this.idProofType = idProofType;
     }
 
-    public String getRegistrationDate() {
+    public LocalDate getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(String registrationDate) {
+    public void setRegistrationDate(LocalDate registrationDate) {
         this.registrationDate = registrationDate;
     }
 
